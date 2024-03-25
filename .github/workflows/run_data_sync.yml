@@ -1,7 +1,7 @@
 name: Run Data Sync
 
 on:
-  workflow_dispatch: 
+  workflow_dispatch:
   schedule:
     - cron: '0 0 * * *'
   push:
@@ -139,7 +139,6 @@ jobs:
         # If you only want to sync `type running` add args --only-run, default script is to sync all data (rides and runs).
         # python run_page/garmin_sync_cn_global.py ${{ secrets.GARMIN_SECRET_STRING_CN }} ${{ secrets.GARMIN_SECRET_STRING }}  --only-run
 
-
       - name: Run sync Only GPX script
         if: env.RUN_TYPE == 'only_gpx'
         run: |
@@ -203,13 +202,3 @@ jobs:
           echo "SAVE_DATA_IN_GITHUB_CACHE=${{ env.SAVE_DATA_IN_GITHUB_CACHE }}" >> "$GITHUB_OUTPUT"
           echo "DATA_CACHE_PREFIX=${{ env.DATA_CACHE_PREFIX }}" >> "$GITHUB_OUTPUT"
           echo "BUILD_GH_PAGES=${{ env.BUILD_GH_PAGES }}" >> "$GITHUB_OUTPUT"
-
-  publish_github_pages:
-    if: needs.sync.result == 'success' && needs.sync.outputs.BUILD_GH_PAGES == 'true'
-    name: Build and publish Github Pages
-    uses: ./.github/workflows/gh-pages.yml
-    with:
-      save_data_in_github_cache: ${{needs.sync.outputs.SAVE_DATA_IN_GITHUB_CACHE == 'true'}}
-      data_cache_prefix: ${{needs.sync.outputs.DATA_CACHE_PREFIX}}
-    needs:
-      - sync

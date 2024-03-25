@@ -45,24 +45,24 @@ const IS_CHINESE = true;
 const USE_ANIMATION_FOR_GRID = false;
 const CHINESE_INFO_MESSAGE = (yearLength: number, year: string): string => {
   const yearStr = year === 'Total' ? '所有' : ` ${year} `;
-  return `我用 App 记录自己跑步 ${yearLength} 年了，下面列表展示的是${yearStr}的数据`;
+  return `记录骑行 ${yearLength} 年，下面列表展示的是${yearStr}的数据`;
 };
 const ENGLISH_INFO_MESSAGE = (yearLength: number, year: string): string =>
   `Running Journey with ${yearLength} Years, the table shows year ${year} data`;
 
 // not support English for now
 const CHINESE_LOCATION_INFO_MESSAGE_FIRST =
-  '我跑过了一些地方，希望随着时间推移，地图点亮的地方越来越多';
-const CHINESE_LOCATION_INFO_MESSAGE_SECOND = '不要停下来，不要停下奔跑的脚步';
+  '我骑过了一些地方，希望随着时间推移，地图点亮的地方越来越多';
+const CHINESE_LOCATION_INFO_MESSAGE_SECOND = '不要停下来';
 
 const INFO_MESSAGE = IS_CHINESE ? CHINESE_INFO_MESSAGE : ENGLISH_INFO_MESSAGE;
-const FULL_MARATHON_RUN_TITLE = IS_CHINESE ? '全程马拉松' : 'Full Marathon';
-const HALF_MARATHON_RUN_TITLE = IS_CHINESE ? '半程马拉松' : 'Half Marathon';
-const MORNING_RUN_TITLE = IS_CHINESE ? '清晨跑步' : 'Morning Run';
-const MIDDAY_RUN_TITLE = IS_CHINESE ? '午间跑步' : 'Midday Run';
-const AFTERNOON_RUN_TITLE = IS_CHINESE ? '午后跑步' : 'Afternoon Run';
-const EVENING_RUN_TITLE = IS_CHINESE ? '傍晚跑步' : 'Evening Run';
-const NIGHT_RUN_TITLE = IS_CHINESE ? '夜晚跑步' : 'Night Run';
+const FULL_MARATHON_RUN_TITLE = IS_CHINESE ? '中等强度' : 'Full Marathon';
+const HALF_MARATHON_RUN_TITLE = IS_CHINESE ? '休闲骑' : 'Half Marathon';
+const MORNING_RUN_TITLE = IS_CHINESE ? '清晨骑行' : 'Morning Run';
+const MIDDAY_RUN_TITLE = IS_CHINESE ? '午间骑行' : 'Midday Run';
+const AFTERNOON_RUN_TITLE = IS_CHINESE ? '午后骑行' : 'Afternoon Run';
+const EVENING_RUN_TITLE = IS_CHINESE ? '傍晚骑行' : 'Evening Run';
+const NIGHT_RUN_TITLE = IS_CHINESE ? '夜晚骑行' : 'Night Run';
 
 const RUN_TITLES = {
   FULL_MARATHON_RUN_TITLE,
